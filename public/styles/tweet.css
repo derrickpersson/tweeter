@@ -8,7 +8,8 @@
 .tweet > header {
     background: lightgray;
     padding: 1em;
-    padding-bottom: 65px;
+/*    padding-bottom: 65px;*/
+    height: 80px;
 }
 
 .tweet > div {
@@ -39,5 +40,9 @@
 
 .tweet .hover-icons{
   float: right;
-  display: contents;
+  display: none;
+}
+
+.tweet:hover .hover-icons{
+  display: inline-block;
 }
