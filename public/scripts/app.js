@@ -77,26 +77,90 @@ $(document).ready(function(){
     return $tweet;
   };
 
-  // let $tweet = createTweetElement(tweetData);
-  // console.log($tweet.html());
-  // $('.tweet-container').append($tweet);
-  // // console.log(getFormatDate(1461116232227));
-
   function renderTweets(tweets){
     var structuredTweets = [];
     for(var i = 0; i < tweets.length; i++){
       $('.tweet-container').append(createTweetElement(tweets[i]));
-      console.log(createTweetElement(tweets[i]));
     }
 
   }
 
-  console.log(renderTweets(tweetsData));
+// Validate form submit
+function validateFormEntry(formData){
+  if(formData.length < 140 ){
+    return "Your message is too long";
+  }else if(formData.length === 0){
+    return "Your message is missing";
+  }else{
+    return;
+  }
+}
 
 
+// Post tweet using AJAX call
+  $('.new-tweet').on("submit", 'form', function(event){
+    var textAreaLength = $(this).find('textarea').val().length
+    console.log(textAreaLength);
+
+    if( textAreaLength > 140){
+      event.preventDefault();
+      return alert('Your message is too long!');
+    }else if(textAreaLength === 0){
+      event.preventDefault();
+      return alert('Your message is missing!');
+    }
+
+    var $form = $(event.target);
+    var formData = $(this).serialize();
+
+    $.ajax({
+        url: $form.attr('action'),
+        type: 'POST',
+        data: $form.serialize(),
+        success: function(result) {
+            // if (!req.body.text) {
+            //   res.status(400).json({ error: 'invalid request: no data in POST body'});
+            //   return;
+            // }
+
+            const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
+            const tweet = {
+              user: user,
+              content: {
+                text: req.body.text
+              },
+              created_at: Date.now()
+            };
+
+            DataHelpers.saveTweet(tweet, (err) => {
+              if (err) {
+                res.status(500).json({ error: err.message });
+              } else {
+                res.status(201).send();
+              }
+            });
+          }
+        });
+
+    $(event.target).trigger('reset');
+    event.preventDefault();
+
+    });
 
 
+// Get tweets via AJAX
+function loadTweets(){
+  $.ajax({
+        url: 'tweets',
+        dataType: 'json',
+        method: 'GET',
+        success: function (result) {
+          renderTweets(result);
+        }
+      });
+}
 
+loadTweets();
 
 
 
