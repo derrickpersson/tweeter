@@ -62,7 +62,7 @@ $(document).ready(function(){
   }
 
   function createTweetFooter(tweetData){
-    var $icons = $("<span>").addClass("hover-icons").html('<i class="fa fa-flag" aria-hidden="true"></i><i class="fa fa-retweet" aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i>');
+    var $icons = $("<span>").addClass("hover-icons").html('<i class="fa fa-flag" aria-hidden="true"></i>' + ' ' + '<i class="fa fa-retweet" aria-hidden="true"></i>' + ' ' + '<i class="fa fa-heart" aria-hidden="true"></i>');
 
     return $footer = $("<footer>").text("Created " + getFormatDate(tweetData.created_at)).append($icons);
 

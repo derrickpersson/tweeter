@@ -3,6 +3,7 @@
     border-radius: 5px;
     background: white;
     border: 2px solid lightgray;
+    position: relative;
 }
 
 .tweet > header {
@@ -31,7 +32,10 @@
 }
 
 .tweet .userHandle{
-  float: right;
+  /*float: right;*/
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .tweet header > img {
