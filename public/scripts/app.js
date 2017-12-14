@@ -9,19 +9,18 @@ $(document).ready(function(){
               <img src="${tweetData.user.avatars.small}">
               <h2>${tweetData.user.name}</h2>
               <span class="userHandle">${tweetData.user.handle}</span>
-            </header>
-          `;
-    // var $img = $("<img>").attr("src", tweetData.user.avatars.small);
-    // var $userName = $("<h2>").text(tweetData.user.name);
-    // var $handle = $("<span>").addClass('userHandle').text(tweetData.user.handle);
-    // return $header = $("<header>").append($img, $userName, $handle);
+            </header>`;
   }
 
   function createTweetFooter(tweetData){
-    var $icons = $("<span>").addClass("hover-icons").html('<i class="fa fa-flag" aria-hidden="true"></i>' + ' ' + '<i class="fa fa-retweet" aria-hidden="true"></i>' + ' ' + '<i class="fa fa-heart" aria-hidden="true"></i>');
-
-    return $footer = $("<footer>").text("Created " + getFormatDate(tweetData.created_at)).append($icons);
-
+    return `<footer>
+              ${getFormatDate(tweetData.created_at)}
+              <span class="hover-icons">
+                <i class="fa fa-flag" aria-hidden="true"></i>
+                <i class="fa fa-retweet" aria-hidden="true"></i>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </span>
+            </footer>`;
   }
 
   function createTweetElement(tweetData){
