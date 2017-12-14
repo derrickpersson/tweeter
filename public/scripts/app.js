@@ -5,10 +5,16 @@ $(document).ready(function(){
   }
 
   function createTweetHeader(tweetData){
-    var $img = $("<img>").attr("src", tweetData.user.avatars.small);
-    var $userName = $("<h2>").text(tweetData.user.name);
-    var $handle = $("<span>").addClass('userHandle').text(tweetData.user.handle);
-    return $header = $("<header>").append($img, $userName, $handle);
+    return `<header>
+              <img src="${tweetData.user.avatars.small}">
+              <h2>${tweetData.user.name}</h2>
+              <span class="userHandle">${tweetData.user.handle}</span>
+            </header>
+          `;
+    // var $img = $("<img>").attr("src", tweetData.user.avatars.small);
+    // var $userName = $("<h2>").text(tweetData.user.name);
+    // var $handle = $("<span>").addClass('userHandle').text(tweetData.user.handle);
+    // return $header = $("<header>").append($img, $userName, $handle);
   }
 
   function createTweetFooter(tweetData){
