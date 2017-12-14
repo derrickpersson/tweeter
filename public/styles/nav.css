@@ -5,8 +5,7 @@
     width: 100%;
     color: #e8fdff;
     height: 80px;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 0 2em;
     z-index: 100;
 }
 
@@ -21,4 +20,35 @@
     line-height: 250%;
     float: left;
     padding-left: 10px;
+}
+
+.form-hidden {
+    line-height: 250%;
+    background-color: #EEEEEE;
+    text-decoration: none;
+    color: #333333;
+    padding: 2px 6px;
+    border: 1px solid;
+    border-color: #CCC #333 #333 #ccc;
+    border-radius: 10px;
+    position: fixed;
+    right: 10px;
+    top: 15px;
+}
+
+#nav-bar > a:hover, .form-shown{
+    line-height: 250%;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    color: darkgreen;
+    padding: 2px 6px;
+    border: 1px solid darkgreen;
+    border-radius: 10px;
+    position: fixed;
+    right: 10px;
+    top: 15px;
+}
+
+#nav-bar a{
+    transition: 300ms;
 }
