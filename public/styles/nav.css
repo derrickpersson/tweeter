@@ -22,7 +22,7 @@
     padding-left: 10px;
 }
 
-.form-hidden {
+.compose-button {
     line-height: 250%;
     background-color: #EEEEEE;
     text-decoration: none;
@@ -36,7 +36,7 @@
     top: 15px;
 }
 
-#nav-bar > a:hover, .form-shown{
+#nav-bar > a:hover, .compose-button.form-shown {
     line-height: 250%;
     background-color: #FFFFFF;
     text-decoration: none;

@@ -24,11 +24,11 @@ $(document).ready(function(){
   }
 
   function createTweetElement(tweetData){
-    var $header = createTweetHeader(tweetData);
+    var header = createTweetHeader(tweetData);
     var $body = $("<div>").text(tweetData.content.text);
-    var $footer = createTweetFooter(tweetData);
+    var footer = createTweetFooter(tweetData);
 
-    var $tweet = $("<article>").addClass('tweet').append($header, $body, $footer);
+    var $tweet = $("<article>").addClass('tweet').append(header, $body, footer);
     return $tweet;
   };
 
@@ -36,48 +36,47 @@ $(document).ready(function(){
     $('.tweet-container').empty().html(tweets.map(createTweetElement).reverse());
   }
 
-// Get tweets via AJAX
-function loadTweets(){
-  $.ajax({
-        url: 'tweets',
-        dataType: 'json',
-        method: 'GET'
-      }).done(function(result){
-        renderTweets(result);
-      });
-};
+  // Get tweets via AJAX
+  function loadTweets(){
+    $.ajax({
+      url: 'tweets',
+      dataType: 'json',
+      method: 'GET'
+    }).done(function(result){
+      renderTweets(result);
+    });
+  };
 
-// Check that the text length is valid
-function checkTextLength(textarea){
-      if( textarea > 140){
+  // Check that the text length is valid
+  function checkTextLength(textarea){
+    if( textarea.length > 140){
       return 'Your message is too long!';
-    }else if(textarea === 0){
+    } else if (textarea.length === 0){
       return 'Your message is missing!';
     }
     return null;
-}
+  }
 
 // Post tweet using AJAX call
   $('.new-tweet').on("submit", 'form', function(submitEvent){
-    var textAreaLength = $(this).find('textarea').val().length
+    var $form = $(submitEvent.target);
+    var textArea = $($form).find('textarea').val()
     submitEvent.preventDefault();
 
-    if(checkTextLength(textAreaLength)){
-      return alert(checkTextLength(textAreaLength));
+    if(checkTextLength(textArea)){
+      return alert(checkTextLength(textArea));
     };
 
-    var $form = $(submitEvent.target);
-    var formData = $(this).serialize();
 
     $.ajax({
-        url: $form.attr('action'),
-        type: 'POST',
-        data: $form.serialize(),
-        }).done(function(event, xhr, settings){
-          $(submitEvent.target).trigger('reset');
-          $('.counter').text("140");
-          loadTweets();
-        });
+      url: $form.attr('action'),
+      type: 'POST',
+      data: $form.serialize(),
+    }).done(function(event, xhr, settings){
+      $(submitEvent.target).trigger('reset');
+      $('.counter').text("140");
+      loadTweets();
+    });
   });
 
 
@@ -88,7 +87,6 @@ function checkTextLength(textarea){
   $('#nav-bar > a').on('click', function(event){
     event.preventDefault();
     $(this).toggleClass('form-shown');
-    $(this).toggleClass('form-hidden');
     $('.new-tweet').slideToggle();
     $('.new-tweet').find('textarea').focus()
   });

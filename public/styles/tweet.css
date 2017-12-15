@@ -2,18 +2,22 @@
     margin: 2em;
     border-radius: 5px;
     background: white;
-    border: 2px solid lightgray;
+    border: 2px solid #989898;
     position: relative;
+}
+
+.tweet:hover{
+  border: 2px solid #515151;
 }
 
 .tweet > header {
     background: lightgray;
     padding: 1em;
-/*    padding-bottom: 65px;*/
     height: 80px;
 }
 
 .tweet > div {
+    overflow-wrap: break-word;
     padding: 1em;
     clear: both;
 }
@@ -32,7 +36,6 @@
 }
 
 .tweet .userHandle{
-  /*float: right;*/
   position: absolute;
   right: 10px;
   top: 10px;
