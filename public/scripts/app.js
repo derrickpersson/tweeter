@@ -117,14 +117,21 @@ $(document).ready(function(){
       $tweet.data("liked", true);
     }
 
-// Show counter logic
+    // Show like counter logic
     if($tweet.data("likes") === 0){
       $tweet.find('.like-counter').html(null);
     }else{
      $tweet.find('.like-counter').html($tweet.data("likes"));
     }
 
-    console.log($tweet.data("likes"));
+    // Post using ajax
+    $.ajax({
+      url: '/tweets/' + $tweet.data("id"),
+      type: 'POST',
+      data: {"id": $tweet.data("id"), "likes": $tweet.data("likes")},
+    }).done(function(event, xhr, settings){
+      // Do stuff???
+    });
 
 
   });

@@ -41,6 +41,12 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.post("/:id", function(req, res){
+    console.log(req.body);
+    // TODO take in post request
+    // TODO use data helper functions to add data to database.
+  });
+
   return tweetsRoutes;
 
 }
