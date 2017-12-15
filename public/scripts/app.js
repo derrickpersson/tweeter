@@ -18,7 +18,7 @@ $(document).ready(function(){
               <span class="hover-icons">
                 <i class="fa fa-flag" aria-hidden="true"></i>
                 <i class="fa fa-retweet" aria-hidden="true"></i>
-                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-heart like-button" aria-hidden="true"></i>
               </span>
             </footer>`;
   }
@@ -95,6 +95,15 @@ $(document).ready(function(){
     $('.new-tweet').slideToggle();
     $('.new-tweet').find('textarea').focus()
   });
+
+
+  // Stretch:
+
+  // Liking Tweets:
+  $('.like-button').on('click', function(){
+    console.log('test');
+  });
+
 
 
 });

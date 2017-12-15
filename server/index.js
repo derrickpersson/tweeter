@@ -9,7 +9,6 @@ const app           = express();
 const path          = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 const sassMiddleware = require('node-sass-middleware');
 // Note: you must place sass-middleware *before* `express.static` or else it will
@@ -23,6 +22,7 @@ app.use(sassMiddleware({
     prefix:  '/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
 }));
 
+app.use(express.static("public"));
 
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
