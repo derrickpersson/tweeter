@@ -64,7 +64,12 @@ $(document).ready(function(){
     submitEvent.preventDefault();
 
     if(checkTextLength(textArea)){
-      return alert(checkTextLength(textArea));
+      var warning = `<div class="warning">
+                        ${checkTextLength(textArea)} <center>
+                    </div>`
+      $(submitEvent.target).prepend(warning);
+      $(submitEvent.target).find('.warning').fadeOut(3000);
+      return;
     };
 
 

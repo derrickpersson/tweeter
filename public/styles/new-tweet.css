@@ -25,3 +25,8 @@
 .over-character-limit {
     color: red;
 }
+
+.warning {
+    color: red;
+    display: inline;
+}
