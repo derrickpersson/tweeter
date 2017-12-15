@@ -18,6 +18,7 @@ $(document).ready(function(){
               <span class="hover-icons">
                 <i class="fa fa-flag" aria-hidden="true"></i>
                 <i class="fa fa-retweet" aria-hidden="true"></i>
+                <span class="like-counter"></span>
                 <i class="fa fa-heart like-button" aria-hidden="true"></i>
               </span>
             </footer>`;
@@ -29,6 +30,8 @@ $(document).ready(function(){
     var footer = createTweetFooter(tweetData);
 
     var $tweet = $("<article>").addClass('tweet').append(header, $body, footer);
+    $tweet.data("id", tweetData._id);
+    $tweet.data("likes", 0);
     return $tweet;
   };
 
@@ -100,8 +103,30 @@ $(document).ready(function(){
   // Stretch:
 
   // Liking Tweets:
-  $('.like-button').on('click', function(){
-    console.log('test');
+  $('body').on('click', '.like-button', function(event){
+    var $tweet = $(this).closest('article');
+    $(this).toggleClass('liked');
+    $tweet.data("id");
+    if($tweet.data("liked")){
+      // Remove one from the total likes.
+      $tweet.data("likes", $tweet.data("likes") - 1);
+      $tweet.data("liked", false);
+    }else{
+      // Add one to the total likes.
+      $tweet.data("likes", $tweet.data("likes") + 1);
+      $tweet.data("liked", true);
+    }
+
+// Show counter logic
+    if($tweet.data("likes") === 0){
+      $tweet.find('.like-counter').html(null);
+    }else{
+     $tweet.find('.like-counter').html($tweet.data("likes"));
+    }
+
+    console.log($tweet.data("likes"));
+
+
   });
 
 
