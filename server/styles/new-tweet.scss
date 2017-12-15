@@ -1,0 +1,34 @@
+$spacing-unit: 5px;
+
+.new-tweet {
+    background: lightgray;
+    border-radius: 5px;
+    margin: 0 2em;
+    padding: 1em;
+    border: 2px solid #989898;
+}
+
+    textarea {
+        overflow-wrap: break-word;
+        display: block;
+        width: 100%;
+        padding: $spacing-unit;
+        margin-bottom: $spacing-unit;
+    }
+
+    .counter {
+        float: right;
+    }
+
+    h2 {
+        border-bottom: 3px black solid;
+    }
+
+.over-character-limit {
+    color: red;
+}
+
+.warning {
+    @extend .over-character-limit;
+    display: inline;
+}

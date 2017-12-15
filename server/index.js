@@ -6,9 +6,22 @@ const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
+const path          = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+const sassMiddleware = require('node-sass-middleware');
+// Note: you must place sass-middleware *before* `express.static` or else it will
+// not work.
+app.use(sassMiddleware({
+    /* Options */
+    src: __dirname + '/styles',
+    dest: path.join(__dirname, '../public/styles'),
+    debug: true,
+    outputStyle: 'compressed',
+    prefix:  '/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
 
 
 const MongoClient = require("mongodb").MongoClient;
@@ -27,6 +40,9 @@ MongoClient.connect(MONGODB_URI, function(err, database){
   // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
   // so it can define routes that use it to interact with the data layer.
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+
+
+  app.use('/public', express.static(path.join(__dirname, 'public')));
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes);

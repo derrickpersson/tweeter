@@ -1,0 +1,60 @@
+$tweet-color: lightgray;
+$spacing-unit: 5px;
+$border-size: 2px;
+
+.tweet {
+    margin: 2em;
+    border-radius: 5px;
+    background: white;
+    border: $border-size solid #989898;
+    position: relative;
+}
+
+  :hover{
+    border: $border-size solid #515151;
+  }
+
+  > header {
+      background: $tweet-color;
+      padding: 1em;
+      height: 80px;
+  }
+
+  > div {
+      overflow-wrap: break-word;
+      padding: 1em;
+      clear: both;
+  }
+
+  > footer {
+      padding: 0.5em;
+      border-top: 0.5px solid $tweet-color;
+  }
+
+  h2 {
+      float: left;
+      line-height: 150%;
+      font-size: 1.5em;
+      margin-left: $spacing-unit;
+      margin-top: 2px;
+  }
+
+  .userHandle{
+    position: absolute;
+    right: $spacing-unit * 2;
+    top: $spacing-unit * 2;
+  }
+
+  header > img {
+      border-radius: 5px;
+      float: left;
+  }
+
+  .hover-icons{
+    float: right;
+    display: none;
+  }
+
+  :hover .hover-icons{
+    display: inline-block;
+  }
