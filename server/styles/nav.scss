@@ -1,6 +1,7 @@
 $background-button-color: #EEE;
 $border-color-normal: #CCC;
 $border-color-shadow: #333;
+$highlight-color: darkgreen;
 
 #nav-bar {
     position: fixed;
@@ -28,9 +29,9 @@ $border-color-shadow: #333;
         line-height: 250%;
         background-color: #FFFFFF;
         text-decoration: none;
-        color: darkgreen;
+        color: $highlight-color;
         padding: 2px 6px;
-        border: 1px solid darkgreen;
+        border: 1px solid $highlight-color;
         border-radius: 10px;
         position: fixed;
         right: 10px;
@@ -40,18 +41,19 @@ $border-color-shadow: #333;
     a{
         transition: 300ms;
     }
-}
 
-.compose-button {
-    line-height: 250%;
-    background-color: $background-button-color;
-    text-decoration: none;
-    color: $border-color-normal;
-    padding: 2px 6px;
-    border: 1px solid;
-    border-color: $border-color-normal $border-color-shadow $border-color-shadow $border-color-normal;
-    border-radius: 10px;
-    position: fixed;
-    right: 10px;
-    top: 15px;
+    .compose-button {
+        line-height: 250%;
+        background-color: $background-button-color;
+        text-decoration: none;
+        color: lighten($highlight-color, 8);
+        padding: 2px 6px;
+        border: 1px solid;
+        border-color: $border-color-normal $border-color-shadow $border-color-shadow $border-color-normal;
+        border-radius: 10px;
+        position: fixed;
+        right: 10px;
+        top: 15px;
+    }
+
 }
