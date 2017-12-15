@@ -33,13 +33,8 @@ $(document).ready(function(){
   };
 
   function renderTweets(tweets){
-    $('.tweet-container').empty()
-    for(var i = 0; i < tweets.length; i++){
-      $('.tweet-container').prepend(createTweetElement(tweets[i]));
-    }
-
+    $('.tweet-container').empty().html(tweets.map(createTweetElement).reverse());
   }
-
 
 // Get tweets via AJAX
 function loadTweets(){
