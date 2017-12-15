@@ -41,23 +41,30 @@ function loadTweets(){
   $.ajax({
         url: 'tweets',
         dataType: 'json',
-        method: 'GET',
-        success: function (result) {
-          renderTweets(result);
-        }
+        method: 'GET'
+      }).done(function(result){
+        renderTweets(result);
       });
 };
+
+// Check that the text length is valid
+function checkTextLength(textarea){
+      if( textarea > 140){
+      return 'Your message is too long!';
+    }else if(textarea === 0){
+      return 'Your message is missing!';
+    }
+    return null;
+}
 
 // Post tweet using AJAX call
   $('.new-tweet').on("submit", 'form', function(submitEvent){
     var textAreaLength = $(this).find('textarea').val().length
     submitEvent.preventDefault();
 
-    if( textAreaLength > 140){
-      return alert('Your message is too long!');
-    }else if(textAreaLength === 0){
-      return alert('Your message is missing!');
-    }
+    if(checkTextLength(textAreaLength)){
+      return alert(checkTextLength(textAreaLength));
+    };
 
     var $form = $(submitEvent.target);
     var formData = $(this).serialize();
