@@ -11,7 +11,6 @@ $border-color-shadow: #333;
     height: 80px;
     padding: 0 2em;
     z-index: 100;
-}
     .logo{
         width: 80px;
         height: 80px;
@@ -25,7 +24,7 @@ $border-color-shadow: #333;
         padding-left: 10px;
     }
 
-    > a:hover, .compose-button.form-shown {
+    & > a:hover, .compose-button.form-shown {
         line-height: 250%;
         background-color: #FFFFFF;
         text-decoration: none;
@@ -41,6 +40,7 @@ $border-color-shadow: #333;
     a{
         transition: 300ms;
     }
+}
 
 .compose-button {
     line-height: 250%;

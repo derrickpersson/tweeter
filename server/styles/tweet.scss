@@ -8,25 +8,24 @@ $border-size: 2px;
     background: white;
     border: $border-size solid #989898;
     position: relative;
-}
 
   :hover{
-    border: $border-size solid #515151;
+    border: $border-size solid s;
   }
 
-  > header {
+  & > header {
       background: $tweet-color;
       padding: 1em;
       height: 80px;
   }
 
-  > div {
+  & > div {
       overflow-wrap: break-word;
       padding: 1em;
       clear: both;
   }
 
-  > footer {
+  & > footer {
       padding: 0.5em;
       border-top: 0.5px solid $tweet-color;
   }
@@ -58,3 +57,5 @@ $border-size: 2px;
   :hover .hover-icons{
     display: inline-block;
   }
+
+}
