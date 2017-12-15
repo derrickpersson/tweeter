@@ -42,7 +42,14 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/:id", function(req, res){
-    console.log(req.body);
+
+    DataHelpers.saveLike(req.body.id, req.body.likes, function(err){
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201).send();
+      }
+    });
     // TODO take in post request
     // TODO use data helper functions to add data to database.
   });
