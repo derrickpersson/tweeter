@@ -29,8 +29,11 @@ It was completed as part of the course requirements at Lighthouse Labs.
 
 ## Screenshots
 
+Tweeter Home Page:
 !["Tweeter home page"](https://github.com/derrickpersson/tweeter/blob/master/docs/tweeter-home-page.png?raw=true)
 
+Tweeter Tweet Form:
 !["Tweeter tweet form"](https://github.com/derrickpersson/tweeter/blob/master/docs/tweeter-tweet-form.png?raw=true)
 
+Tweeter Form Submit:
 !["Tweeter form submit"](https://github.com/derrickpersson/tweeter/blob/master/docs/tweeter-form-submit.png?raw=true)
