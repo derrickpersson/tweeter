@@ -9,8 +9,8 @@ $border-size: 2px;
     border: $border-size solid #989898;
     position: relative;
 
-  :hover{
-    border: $border-size solid s;
+  &:hover{
+    border: $border-size solid darken($tweet-color, 35);
   }
 
   & > header {
@@ -54,7 +54,7 @@ $border-size: 2px;
     display: none;
   }
 
-  :hover .hover-icons{
+  &:hover .hover-icons{
     display: inline-block;
   }
 

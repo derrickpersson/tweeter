@@ -25,11 +25,9 @@ module.exports = function makeDataHelpers(db) {
         callback(null, tweets.sort(sortNewestFirst));
       });
     },
-
+    // Save like to db
     saveLike: function(id, likeCount, callback){
-      // db.collection("tweets").find(id);
       db.collection('tweets').update({_id: ObjectId(id)}, {$set: {"likes": likeCount}}, callback);
-      // db.test.update({_id: ObjectId("5a31d581d4a0a228d3e4b537")}, {$set: {"name":"test"}})
     }
 
   };

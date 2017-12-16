@@ -47,11 +47,9 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        res.status(200).send();
       }
     });
-    // TODO take in post request
-    // TODO use data helper functions to add data to database.
   });
 
   return tweetsRoutes;

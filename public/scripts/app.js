@@ -106,7 +106,6 @@ $(document).ready(function(){
   $('body').on('click', '.like-button', function(event){
     var $tweet = $(this).closest('article');
     $(this).toggleClass('liked');
-    $tweet.data("id");
     if($tweet.data("liked")){
       // Remove one from the total likes.
       $tweet.data("likes", $tweet.data("likes") - 1);
@@ -130,7 +129,7 @@ $(document).ready(function(){
       type: 'POST',
       data: {"id": $tweet.data("id"), "likes": $tweet.data("likes")},
     }).done(function(event, xhr, settings){
-      // Do stuff???
+
     });
 
 
